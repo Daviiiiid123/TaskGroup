@@ -1,0 +1,22 @@
+body {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+body > h2 {
+    text-align: center;
+}
+
+form {
+    max-width: 500px;
+    margin-inline: auto;
+    display: grid;
+}
+
+form > input {
+    margin-bottom: 10px;
+}
+
+form > button[type=submit] {
+    max-width: 100px;
+}
