@@ -1,0 +1,21 @@
+/* Minimal CSS for index.html */
+:root{ --bg:#f8fafc; --card:#ffffff; --accent:#2563eb; --muted:#6b7280 }
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: #333;
+    margin: 3%;
+    padding: 0;
+}
+
+/* Header layout using Flexbox */
+header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:var(--card);
+    padding:0px 5%;
+    border-bottom:1px solid #e6e9ef;
+}
+header h1{margin:0;font-size:30px;color:var(--accent)}
+header nav{margin-left:0px}
