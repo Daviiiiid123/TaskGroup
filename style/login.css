@@ -1,0 +1,22 @@
+body {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+body > h2 {
+    text-align: center;
+}
+
+#loginForm {
+    max-width: 500px;
+    margin-inline: auto;
+    display: grid;
+}
+
+#loginForm > input {
+    margin-bottom: 10px;
+}
+
+#loginForm > button[type=submit] {
+    max-width: 100px;
+}
