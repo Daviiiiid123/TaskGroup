@@ -7,16 +7,16 @@ body > h2 {
     text-align: center;
 }
 
-#loginForm {
+form {
     max-width: 500px;
     margin-inline: auto;
     display: grid;
 }
 
-#loginForm > input {
+form > input {
     margin-bottom: 10px;
 }
 
-#loginForm > button[type=submit] {
+form > button[type=submit] {
     max-width: 100px;
 }
