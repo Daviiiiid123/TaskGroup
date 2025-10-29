@@ -1,11 +1,18 @@
 /* Minimal CSS for index.html */
-:root{ --bg:#f8fafc; --card:#ffffff; --accent:#2563eb; --muted:#6b7280 }
+:root{ --bg:#ffffff; --card:#ffffff; --accent:#2563eb; --muted:#6b7280 }
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bg);
     color: #333;
-    margin: 3%;
+    /* margin: 3% 5%; */
     padding: 0;
+    /* centrar el contenido */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: auto;
+
 }
 
 /* Header layout using Flexbox */
@@ -16,6 +23,14 @@ header{
     background:var(--card);
     padding:0px 5%;
     border-bottom:1px solid #e6e9ef;
+   
 }
 header h1{margin:0;font-size:30px;color:var(--accent)}
 header nav{margin-left:0px}
+/* Navigation links styling */
+header nav a{
+    text-decoration:none;
+    color:var(--accent);
+    margin-left:20px;
+    font-size:16px;
+}
