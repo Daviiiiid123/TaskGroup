@@ -1,0 +1,50 @@
+/* Estilos Trello para tasks.html */
+.trello-board {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 32px 0;
+}
+.trello-column {
+  background: var(--card, #faa916);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(27,27,30,0.07);
+  padding: 18px 14px 24px 14px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+.trello-column h3 {
+  margin-top: 0;
+  color: var(--accent, #1b1b1e);
+  text-align: center;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+}
+.trello-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.trello-card {
+  background: #fbfffe;
+  color: var(--accent, #1b1b1e);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(27,27,30,0.5);
+  padding: 14px 12px;
+  font-size: 1em;
+  transition: box-shadow 0.2s;
+}
+.trello-card:hover {
+  box-shadow: 0 4px 12px rgba(27,27,30,0.8);
+}
+@media (max-width: 900px) {
+  .trello-board { flex-direction: column; gap: 18px; }
+  .trello-column { max-width: 100%; min-width: 0; }
+}

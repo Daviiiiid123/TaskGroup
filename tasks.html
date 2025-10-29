@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/tasks.css">
         <title>TaskGroup — Tareas</title>
     </head>
     <body>
@@ -16,33 +17,27 @@
 
         <main>
             <h2>Tareas</h2>
-
-            <section>
-                <h3>Por hacer</h3>
-                <ul>
-                    <li>Diseñar estructura </li>
-                    <li>Especificar requisitos</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>En progreso</h3>
-                <ul>
-                    <li>Implementar API</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Hecho</h3>
-                <ul>
-                    <li>Configurar repositorio</li>
-                </ul>
-            </section>
-
-            <section>
-                <h3>Crear tarea</h3>
-            </section>
-
+            <div class="trello-board">
+                <section class="trello-column">
+                    <h3>Por hacer</h3>
+                    <ul class="trello-list">
+                        <li class="trello-card">Diseñar estructura</li>
+                        <li class="trello-card">Especificar requisitos</li>
+                    </ul>
+                </section>
+                <section class="trello-column">
+                    <h3>En progreso</h3>
+                    <ul class="trello-list">
+                        <li class="trello-card">Implementar API</li>
+                    </ul>
+                </section>
+                <section class="trello-column">
+                    <h3>Hecho</h3>
+                    <ul class="trello-list">
+                        <li class="trello-card">Configurar repositorio</li>
+                    </ul>
+                </section>
+            </div>
         </main>
 
         <footer>

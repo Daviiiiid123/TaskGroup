@@ -1,18 +1,22 @@
 /* Minimal CSS for index.html */
-:root{ --bg:#ffffff; --card:#ffffff; --accent:#2563eb; --muted:#6b7280 }
+:root{
+    --bg: #d6d6d6;         /* Fondo general */
+    --card: #ffffff;        /* Tarjetas, paneles */
+    --text: #003049;        /* Texto principal */
+    --primary: #c1121f;     /* Botones, enlaces principales */
+    --secondary: #669bbc;   /* Bordes, iconos secundarios */
+    --danger: #780000;      /* Botones de eliminar, alertas */
+}
 body {
     font-family: Arial, sans-serif;
     background-color: var(--bg);
-    color: #333;
-    /* margin: 3% 5%; */
+    color: var(--text);
     padding: 0;
-    /* centrar el contenido */
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 3%;
     margin-bottom: auto;
-
 }
 
 /* Header layout using Flexbox */
@@ -22,15 +26,47 @@ header{
     justify-content:space-between;
     background:var(--card);
     padding:0px 5%;
-    border-bottom:1px solid #e6e9ef;
-   
+    border-bottom:4px solid var(--primary);
 }
-header h1{margin:0;font-size:30px;color:var(--accent)}
+header h1{
+    margin:0;
+    font-size:30px;
+    color:var(--primary);
+}
 header nav{margin-left:0px}
-/* Navigation links styling */
 header nav a{
     text-decoration:none;
-    color:var(--accent);
+    color:var(--card);
+    background:var(--primary);
     margin-left:20px;
     font-size:16px;
+    padding:8px 16px;
+    border-radius:6px;
+    transition:background 0.2s;
+}
+header nav a:hover{
+    background:var(--secondary);
+    color:var(--text);
+}
+/* Botón de eliminar o alerta */
+.btn-danger, .alert {
+    background: var(--danger);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn-danger:hover {
+    background: #a00000;
+}
+/* Tarjetas y paneles */
+.card, section, .trello-card {
+    background: var(--card);
+    color: var(--text);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 16px;
+    margin-bottom: 18px;
 }
