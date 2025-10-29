@@ -27,9 +27,10 @@ header{
     background:var(--card);
     padding:0px 5%;
     border-bottom:4px solid var(--primary);
+    size: 50px;
 }
 header h1{
-    margin:0;
+    margin:10;
     font-size:30px;
     color:var(--primary);
 }
