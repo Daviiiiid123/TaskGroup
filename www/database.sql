@@ -26,7 +26,7 @@ create table proyects (
 	id int auto_increment,
 	title varchar(255),
 	content varchar(255),
-	primary key (id),
+	primary key (id)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
 -- Crear una tabla para los comentarios
@@ -43,7 +43,7 @@ create table proyect_users (
     username varchar(255),
     primary key (proyect_id, username),
     foreign key (proyect_id) references proyects(id) on delete cascade,
-    foreign key (username) references users(username) on delete cascade,
+    foreign key (username) references users(username) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
 create table task_users (
@@ -51,7 +51,7 @@ create table task_users (
     username varchar(255),
     primary key (task_id, username),
     foreign key (task_id) references tasks(id) on delete cascade,
-    foreign key (username) references users(username) on delete cascade,
+    foreign key (username) references users(username) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
 -- Introducir datos de prueba en la base de datos
