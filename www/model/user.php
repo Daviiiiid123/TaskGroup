@@ -8,6 +8,9 @@ class User {
 
 	private $passwd;
 
+	//se añade el campo email
+	private $email;
+
 	public function __construct($username=NULL, $passwd=NULL) {
 		$this->username = $username;
 		$this->passwd = $passwd;
@@ -29,8 +32,24 @@ class User {
 		$this->passwd = $passwd;
 	}
 
+	// getter y setter del campo email
+	public function getEmail() {
+		return $this->email;
+	}
+
+	public function setEmail($email) {
+		$this->email = $email;
+	}
+
 	public function checkIsValidForRegister() {
 		$errors = array();
+		//comprobacion de que el email tiene formato valido
+		//FILTER_VALIDATE_EMAIL es una constante que define un filtro para validar emails
+		//filter_var es una funcion que aplica un filtro a una variable
+		if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) { 
+			$errors["email"] = "Email is not valid";
+		}
+
 		if (strlen($this->username) < 5) {
 			$errors["username"] = "Username must be at least 5 characters length";
 
