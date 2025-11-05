@@ -27,7 +27,6 @@ create table proyects (
 	title varchar(255),
 	content varchar(255),
 	primary key (id),
-	foreign key (author) references users(username)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
 -- Crear una tabla para los comentarios
@@ -36,7 +35,6 @@ create table tasks (
 	content varchar(255),
 	proyect int not null,
 	primary key (id),
-	foreign key (author) references users(username),
 	foreign key (proyect) references proyects(id) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
@@ -60,5 +58,8 @@ create table task_users (
 INSERT INTO users (username, email, passwd) VALUES ('dani', 'dani@correofalso.com', 'dani');
 INSERT INTO users (username, email, passwd) VALUES ('pepe', 'pepe@correofalso.com', 'pepe');
 
-INSERT INTO proyects (title, content, author)
-VALUES ('Me presento', 'hola soy dani', 'dani');
+INSERT INTO proyects (title, content)
+VALUES ('Me presento', 'hola soy dani');
+
+INSERT INTO proyect_users (proyect_id, username)
+VALUES (0, 'dani');

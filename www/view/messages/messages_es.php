@@ -15,7 +15,7 @@ array(
 	"Post \"%s\" successfully added." => "Artículo \"%s\" añadido.",
 	"Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
 	"Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
-	"Login" => "Entrar",
+	"Login" => "Iniciar sesión",
 	"Username" => "Nombre de usuario",
 	"Password" => "Contraseña",
 	"Not user?" => "Nuevo aquí?",
