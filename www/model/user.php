@@ -11,9 +11,10 @@ class User {
 	//se añade el campo email
 	private $email;
 
-	public function __construct($username=NULL, $passwd=NULL) {
+	public function __construct($username=NULL, $passwd=NULL, $email=NULL) {
 		$this->username = $username;
 		$this->passwd = $passwd;
+		$this->email = $email;
 	}
 
 	public function getUsername() {
