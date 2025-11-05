@@ -25,7 +25,6 @@ CREATE TABLE users (
 create table projects (
 	id int auto_increment,
 	title varchar(255),
-	content varchar(255),
 	primary key (id)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
@@ -34,6 +33,7 @@ create table tasks (
 	id int auto_increment,	 
 	content varchar(255),
 	project int not null,
+    is_done bit not null,
 	primary key (id),
 	foreign key (project) references projects(id) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
@@ -58,8 +58,8 @@ create table task_users (
 INSERT INTO users (username, email, passwd) VALUES ('dani', 'dani@correofalso.com', 'dani');
 INSERT INTO users (username, email, passwd) VALUES ('pepe', 'pepe@correofalso.com', 'pepe');
 
-INSERT INTO projects (title, content)
-VALUES ('Me presento', 'hola soy dani');
+INSERT INTO projects (title)
+VALUES ('Proyecto ejemplo');
 
 INSERT INTO project_users (project_id, username)
 VALUES (1, 'dani');

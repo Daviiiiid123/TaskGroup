@@ -19,7 +19,3 @@ $errors = $view->getVariable("errors");
 
 	<button type="submit"><?= i18n("Login")?></button>
 </form>
-
-<?php $view->moveToFragment("css");?>
-<link rel="stylesheet" type="text/css" src="styles/style.css">
-<?php $view->moveToDefaultFragment(); ?>
