@@ -5,11 +5,14 @@ class Project {
 	private $id;
 	private $title;
 	private $content;
+    //Lista de usuarios asignados al proyecto
+    private $assignedUsers;
 
-	public function __construct($id=NULL, $title=NULL, $content=NULL) {
+	public function __construct($id=NULL, $title=NULL, $content=NULL, $assignedUsers=array()) {
 		$this->id = $id;
 		$this->title = $title;
 		$this->content = $content;
+        $this->assignedUsers = $assignedUsers;
 	}
 
 	public function getId() {
@@ -35,4 +38,10 @@ class Project {
 	public function setContent($content) {
 		$this->content = $content;
 	}
+    public function getAssignedUsers() {
+        return $this->assignedUsers;
+    }
+    public function setAssignedUsers($assignedUsers) {
+        $this->assignedUsers = $assignedUsers;
+    }
 }
