@@ -7,15 +7,22 @@ $errors = $view->getVariable("errors");
 $user = $view->getVariable("user");
 $view->setVariable("title", "Register");
 ?>
+
 <h1><?= i18n("Register")?></h1>
+
+<h2>Registrarse</h2>
 <form action="index.php?controller=users&amp;action=register" method="POST">
-	<?= i18n("Username")?>: <input type="text" name="username"
-	value="<?= $user->getUsername() ?>">
-	<?= isset($errors["username"])?i18n($errors["username"]):"" ?><br>
+	<label for="username"><b><?= i18n("Username")?></b></label>
+	<input type="text" name="username" value="<?= $user->getUsername() ?>">
+	<?= isset($errors["username"])?i18n($errors["username"]):"" ?>
 
-	<?= i18n("Password")?>: <input type="password" name="passwd"
-	value="">
-	<?= isset($errors["passwd"])?i18n($errors["passwd"]):"" ?><br>
+	<label for="passwd"><b>C<?= i18n("Password")?></b></label>
+	<input type="text" name="passwd" value="">
+	<?= isset($errors["passwd"])?i18n($errors["passwd"]):"" ?>
 
-	<input type="submit" value="<?= i18n("Register")?>">
+	<label for="email"><b><?= i18n("Email")?></b></label>
+	<input type="text" name="email" value="<?= $user->getEmail() ?>">
+	<?= isset($errors["email"])?i18n($errors["email"]):"" ?>
+
+	<button type="submit"><?= i18n("Register")?></button>
 </form>

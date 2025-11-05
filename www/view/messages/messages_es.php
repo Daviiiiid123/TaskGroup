@@ -18,6 +18,7 @@ array(
 	"Login" => "Iniciar sesión",
 	"Username" => "Nombre de usuario",
 	"Password" => "Contraseña",
+	"Email" => "Correo electrónico",
 	"Not user?" => "Nuevo aquí?",
 	"Register here!" => "¡Regístrate aquí!",
 	"Register" => "Registro",

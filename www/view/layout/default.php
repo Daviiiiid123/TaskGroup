@@ -7,8 +7,9 @@ $currentuser = $view->getVariable("currentusername");
 ?><!DOCTYPE html>
 <html>
 <head>
-	<title><?= $view->getVariable("title", "no title") ?></title>
 	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?= $view->getVariable("title", "no title") ?></title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<!-- enable ji18n() javascript function to translate inside your scripts -->
 	<script src="index.php?controller=language&amp;action=i18njs">

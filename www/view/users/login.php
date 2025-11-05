@@ -9,16 +9,17 @@ $errors = $view->getVariable("errors");
 
 <h2><?= i18n("Login") ?></h2>
 <?= isset($errors["general"])?$errors["general"]:"" ?>
-<form action="index.php?controller=users&amp;action=login" method="POST">
-	<label for="usuario"><b><?= i18n("Username")?></b></label>
-	<input type="text" name="usuario">
 
-	<label for="constraseña"><b><?= i18n("Password")?></b></label>
-	<input type="text" name="contraseña">
+<form action="index.php?controller=users&amp;action=login" method="POST">
+	<label for="username"><b><?= i18n("Username")?></b></label>
+	<input type="text" name="username">
+
+	<label for="passwd"><b><?= i18n("Password")?></b></label>
+	<input type="password" name="passwd">
 
 	<button type="submit"><?= i18n("Login")?></button>
 </form>
 
 <?php $view->moveToFragment("css");?>
-<link rel="stylesheet" type="text/css" src="css/style.css">
+<link rel="stylesheet" type="text/css" src="styles/style.css">
 <?php $view->moveToDefaultFragment(); ?>

@@ -21,8 +21,8 @@ CREATE TABLE users (
     unique (email)
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
--- Crear una tabla para los proyects
-create table proyects (
+-- Crear una tabla para los projects
+create table projects (
 	id int auto_increment,
 	title varchar(255),
 	content varchar(255),
@@ -33,16 +33,16 @@ create table proyects (
 create table tasks (
 	id int auto_increment,	 
 	content varchar(255),
-	proyect int not null,
+	project int not null,
 	primary key (id),
-	foreign key (proyect) references proyects(id) on delete cascade
+	foreign key (project) references projects(id) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
-create table proyect_users (
-    proyect_id int,
+create table project_users (
+    project_id int,
     username varchar(255),
-    primary key (proyect_id, username),
-    foreign key (proyect_id) references proyects(id) on delete cascade,
+    primary key (project_id, username),
+    foreign key (project_id) references projects(id) on delete cascade,
     foreign key (username) references users(username) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;
 
@@ -58,8 +58,8 @@ create table task_users (
 INSERT INTO users (username, email, passwd) VALUES ('dani', 'dani@correofalso.com', 'dani');
 INSERT INTO users (username, email, passwd) VALUES ('pepe', 'pepe@correofalso.com', 'pepe');
 
-INSERT INTO proyects (title, content)
+INSERT INTO projects (title, content)
 VALUES ('Me presento', 'hola soy dani');
 
-INSERT INTO proyect_users (proyect_id, username)
-VALUES (0, 'dani');
+INSERT INTO project_users (project_id, username)
+VALUES (1, 'dani');
