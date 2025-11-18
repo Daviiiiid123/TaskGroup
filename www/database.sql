@@ -30,10 +30,11 @@ create table projects (
 
 -- Crear una tabla para los comentarios
 create table tasks (
-	id int auto_increment,	 
+	id int auto_increment,
+	title varchar(255) not null,
 	content varchar(255),
 	project int not null,
-    is_done bit not null,
+    is_done bit not null default 0,
 	primary key (id),
 	foreign key (project) references projects(id) on delete cascade
 ) ENGINE=INNODB DEFAULT CHARACTER SET = utf8;

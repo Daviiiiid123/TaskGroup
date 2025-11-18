@@ -27,7 +27,8 @@ class TaskMapper {
 				$task["title"], 
 				$task["content"], 
 				$task["project"], 
-				$assignedUsers
+				$assignedUsers,
+				$task["is_done"]
 			));
 		}
 
@@ -48,7 +49,8 @@ class TaskMapper {
 				$task["title"], 
 				$task["content"], 
 				$task["project"], 
-				$assignedUsers
+				$assignedUsers,
+				$task["is_done"]
 			));
 		}
 
@@ -73,7 +75,8 @@ class TaskMapper {
 				$task["title"], 
 				$task["content"], 
 				$task["project"], 
-				$assignedUsers
+				$assignedUsers,
+				$task["is_done"]
 			));
 		}
 
@@ -92,7 +95,8 @@ class TaskMapper {
 				$task["title"],
 				$task["content"],
 				$task["project"],
-				$assignedUsers
+				$assignedUsers,
+				$task["is_done"]
 			);
 		} else {
 			return NULL;
@@ -100,8 +104,8 @@ class TaskMapper {
 	}
 
 	public function save(Task $task) {
-		$stmt = $this->db->prepare("INSERT INTO tasks(title, content, project) values (?,?,?)");
-		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getProjectId()));
+		$stmt = $this->db->prepare("INSERT INTO tasks(title, content, project, is_done) values (?,?,?,?)");
+		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getProjectId(), $task->getIsDone()));
 		$taskId = $this->db->lastInsertId();
 		
 		foreach ($task->getAssignedUsers() as $username) {
@@ -122,8 +126,8 @@ class TaskMapper {
 	}
 
 	public function update(Task $task) {
-		$stmt = $this->db->prepare("UPDATE tasks set title=?, content=? where id=?");
-		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getId()));
+		$stmt = $this->db->prepare("UPDATE tasks set title=?, content=?, is_done=? where id=?");
+		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getIsDone(), $task->getId()));
 		
 		$stmt = $this->db->prepare("DELETE FROM task_users WHERE task_id=?");
 		$stmt->execute(array($task->getId()));
