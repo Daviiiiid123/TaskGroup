@@ -12,7 +12,7 @@ class UserMapper {
 
 	public function save($user) {
 		$stmt = $this->db->prepare("INSERT INTO users values (?,?,?)");
-		$stmt->execute(array($user->getUsername(), $user->getEmail() $user->getPasswd()));
+		$stmt->execute(array($user->getUsername(), $user->getEmail(), $user->getPasswd()));
 	}
 
 	public function usernameExists($username) {

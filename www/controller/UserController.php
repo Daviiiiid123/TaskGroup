@@ -9,7 +9,7 @@ require_once(__DIR__."/../model/UserMapper.php");
 require_once(__DIR__."/../controller/BaseController.php");
 
 
-class UsersController extends BaseController {
+class UserController extends BaseController {
 
 	
 	private $userMapper;
@@ -19,7 +19,7 @@ class UsersController extends BaseController {
 
 		$this->userMapper = new UserMapper();
 
-		// Users controller operates in a "welcome" layout
+		// User controller operates in a "welcome" layout
 		// different to the "default" layout where the internal
 		// menu is displayed
 		$this->view->setLayout("welcome");
@@ -34,7 +34,7 @@ class UsersController extends BaseController {
 				$_SESSION["currentuser"]=$_POST["username"];
 
 				// send user to the restricted area (HTTP 302 code)
-				$this->view->redirect("posts", "index");
+				$this->view->redirect("project", "index");
 
 			}else{
 				$errors = array();
@@ -43,8 +43,8 @@ class UsersController extends BaseController {
 			}
 		}
 
-		// render the view (/view/users/login.php)
-		$this->view->render("users", "login");
+		// render the view (/view/user/login.php)
+		$this->view->render("user", "login");
 	}
 
 	
@@ -78,9 +78,9 @@ class UsersController extends BaseController {
 					$this->view->setFlash("Username ".$user->getUsername()." successfully added. Please login now");
 
 					// perform the redirection. More or less:
-					// header("Location: index.php?controller=users&action=login")
+					// header("Location: index.php?controller=user&action=login")
 					// die();
-					$this->view->redirect("users", "login");
+					$this->view->redirect("user", "login");
 				} else {
 					$errors = array();
 					$errors["username"] = "Username already exists";
@@ -97,8 +97,8 @@ class UsersController extends BaseController {
 		// Put the User object visible to the view
 		$this->view->setVariable("user", $user);
 
-		// render the view (/view/users/register.php)
-		$this->view->render("users", "register");
+		// render the view (/view/user/register.php)
+		$this->view->render("user", "register");
 
 	}
 
@@ -106,9 +106,9 @@ class UsersController extends BaseController {
 		session_destroy();
 
 		// perform a redirection. More or less:
-		// header("Location: index.php?controller=users&action=login")
+		// header("Location: index.php?controller=user&action=login")
 		// die();
-		$this->view->redirect("users", "login");
+		$this->view->redirect("user", "login");
 
 	}
 
