@@ -10,7 +10,9 @@ $errors = $view->getVariable("errors");
 <h2><?= i18n("Login") ?></h2>
 <?= isset($errors["general"])?$errors["general"]:"" ?>
 
-<form action="index.php?controller=user&amp;action=login" method="POST">
+<div id="login">
+	<h1><?= i18n("Log in") ?></h1>
+	<form action="index.php?controller=user&amp;action=login" method="POST">
 	<label for="username"><b><?= i18n("Username")?></b></label>
 	<input type="text" name="username">
 

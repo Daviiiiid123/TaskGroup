@@ -22,12 +22,12 @@ $currentuser = $view->getVariable("currentusername");
 		<h1>TaskGroup</h1>
 		<?php include(__DIR__."/language_select_element.php"); ?>
 		<nav>
-			<?php if (isset($currentuser)): ?>
-				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a> 
+			<?php if (isset($currentusername)): ?>
+				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a>
 			<?php else: ?>
-				<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
-				<a href="index.php?controller=user&amp;action=login"><?= i18n("Login") ?></a> 
-				<a href="index.php?controller=user&amp;action=register"><?= i18n("Register") ?></a> 
+			<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
+			<a href="index.php?controller=user&amp;action=login"><?= i18n("Login") ?></a>
+			<a href="index.php?controller=user&amp;action=register"><?= i18n("Register") ?></a>
 			<?php endif ?>
 		</nav>
 	</header>
