@@ -97,7 +97,7 @@ class ViewManager {
 	private function renderLayout() {
 		$this->moveToFragment("layout");
 
-		include(__DIR__."/../view/layouts/".$this->layout.".php");
+		include(__DIR__."/../view/layout/".$this->layout.".php");
 
 		ob_flush();
 	}

@@ -19,10 +19,10 @@ class UserController extends BaseController {
 
 		$this->userMapper = new UserMapper();
 
-		// User controller operates in a "welcome" layout
+		// User controller operates in a "default" layout
 		// different to the "default" layout where the internal
 		// menu is displayed
-		$this->view->setLayout("welcome");
+		$this->view->setLayout("default");
 	}
 
 	

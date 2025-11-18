@@ -5,12 +5,11 @@ require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
 $errors = $view->getVariable("errors");
 $user = $view->getVariable("user");
-$view->setVariable("title", "Register");
+$view->setVariable("title", i18n("Register"));
 ?>
 
 <h1><?= i18n("Register")?></h1>
 
-<h2>Registrarse</h2>
 <form action="index.php?controller=user&amp;action=register" method="POST">
 	<label for="username"><b><?= i18n("Username")?></b></label>
 	<input type="text" name="username" value="<?= $user->getUsername() ?>">
