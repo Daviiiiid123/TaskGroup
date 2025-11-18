@@ -16,7 +16,8 @@ array(
 	"Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
 	"Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
 	"Index" => "Inicio",
-	"View projects"
+	"View projects" => "Ver proyectos",
+	"View tasks" => "Ver tareas",
 	"Login" => "Iniciar sesión",
 	"Log out" => "Cerrar sesión",
 	"Username" => "Nombre de usuario",

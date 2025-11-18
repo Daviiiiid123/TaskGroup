@@ -1,13 +1,13 @@
 <?php
-//file: view/posts/index.php
+//file: view/project/index.php
 
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
 
-$posts = $view->getVariable("posts");
+$projects = $view->getVariable("projects");
 $currentuser = $view->getVariable("currentusername");
 
-$view->setVariable("title", "Posts");
+$view->setVariable("title", "Projects");
 
 ?><?php if (isset($currentuser)): ?>
     

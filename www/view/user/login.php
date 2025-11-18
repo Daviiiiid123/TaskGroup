@@ -1,5 +1,5 @@
 <?php
-//file: view/users/login.php
+//file: view/user/login.php
 
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
@@ -10,7 +10,7 @@ $errors = $view->getVariable("errors");
 <h2><?= i18n("Login") ?></h2>
 <?= isset($errors["general"])?$errors["general"]:"" ?>
 
-<form action="index.php?controller=users&amp;action=login" method="POST">
+<form action="index.php?controller=user&amp;action=login" method="POST">
 	<label for="username"><b><?= i18n("Username")?></b></label>
 	<input type="text" name="username">
 
