@@ -14,8 +14,10 @@ class ProjectController extends BaseController {
 
     public function index() {
         // Metodo por defecto que muestra la lista de proyectos del usuario actual
-        $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
-        $this->view->setVariable("projects", $projects); // Pasa los proyectos a la vista
+        if (isset($_SESSION["currentuser"])) {
+            $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
+            $this->view->setVariable("projects", $projects); // Pasa los proyectos a la vista
+        }
         $this->view->render("project", "index"); // Renderiza la vista de índice de proyectos
     }
 
