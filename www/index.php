@@ -1,8 +1,8 @@
 <?php
 
-define("DEFAULT_CONTROLLER", "posts");
+define("DEFAULT_CONTROLLER", "users");
 
-define("DEFAULT_ACTION", "index");
+define("DEFAULT_ACTION", "login");
 
 function run() {
 	try {
