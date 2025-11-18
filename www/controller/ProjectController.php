@@ -13,11 +13,14 @@ class ProjectController extends BaseController {
 
 
     public function index() {
-        // Metodo por defecto que muestra la lista de proyectos del usuario actual
+        // Verificar autenticación
+        $this->checkAuthentication();
+        
+        // Obtener proyectos del usuario actual
         $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
-        $this->view->setVariable("projects", $projects); // Pasa los proyectos a la vista
-        $this->view->render("project", "index"); // Renderiza la vista de índice de proyectos
-    }
+        $this->view->setVariable("projects", $projects); 
+        $this->view->render("project", "index");
+    }   
 
     public function view() {
         //Verificar autenticación y permisos ya que F3 requiere autenticación.
