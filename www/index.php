@@ -1,6 +1,6 @@
 <?php
 
-define("DEFAULT_CONTROLLER", "users");
+define("DEFAULT_CONTROLLER", "user");
 
 define("DEFAULT_ACTION", "login");
 
