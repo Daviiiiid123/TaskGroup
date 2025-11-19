@@ -62,5 +62,29 @@ INSERT INTO users (username, email, passwd) VALUES ('pepe', 'pepe@correofalso.co
 INSERT INTO projects (title)
 VALUES ('Proyecto ejemplo');
 
+INSERT INTO projects (title)
+VALUES ('Proyecto de TSW');
+
+INSERT INTO projects (title)
+VALUES ('Trabajo Base de Datos');
+
+INSERT INTO projects (title)
+VALUES ('App Web PHP');
+
+INSERT INTO projects (title)
+VALUES ('Sistema de Gestion');
+
 INSERT INTO project_users (project_id, username)
 VALUES (1, 'dani');
+
+INSERT INTO project_users (project_id, username)
+VALUES (2, 'dani');
+
+INSERT INTO project_users (project_id, username)
+VALUES (3, 'dani');
+
+INSERT INTO project_users (project_id, username)
+VALUES (4, 'dani');
+
+INSERT INTO project_users (project_id, username)
+VALUES (5, 'dani');

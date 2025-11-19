@@ -11,10 +11,14 @@
 
 /* Tarjeta individual de proyecto */
 .project-card {
-    
-
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;    
 }
 
 .project-card:hover {
+    box-shadow: 0 4px 8px #c1121f;
+    
 
 }
