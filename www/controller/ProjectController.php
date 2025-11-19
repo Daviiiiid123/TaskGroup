@@ -51,6 +51,12 @@ class ProjectController extends BaseController
             return;
         }
 
+        // Obtener las tareas del proyecto
+        $tasks = $this->taskMapper->findByProject($_GET["id"]);
+        if (is_null($tasks)) {
+            $tasks = array();
+        }
+
         // Pasar el proyecto a la vista
         $this->view->setVariable("project", $project);
         // Renderizar la vista de detalles del proyecto
