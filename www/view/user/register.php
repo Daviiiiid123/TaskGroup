@@ -25,3 +25,7 @@ $view->setVariable("title", i18n("Register"));
 
 	<button type="submit"><?= i18n("Register")?></button>
 </form>
+
+<?php $view->moveToFragment("css");?>
+<link rel="stylesheet" href="view/styles/login.css" type="text/css">
+<?php $view->moveToDefaultFragment(); ?>
