@@ -7,11 +7,9 @@ $view = ViewManager::getInstance();
 $projects = $view->getVariable("projects");
 $currentuser = $view->getVariable("currentusername");
 
-$view->setVariable("title", "Projects");
-
-?><?php if (isset($currentuser)): ?>
+?><?php if (isset($currentuser)): $view->setVariable("title", i18n("Projects"));?>
     
-<?php else: ?>
+<?php else: $view->setVariable("title", i18n("Index"));?>
     <p>Aplicación para la gestión colaborativa de tareas por proyectos</p>
 
     <section>

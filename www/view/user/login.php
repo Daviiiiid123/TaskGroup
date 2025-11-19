@@ -4,14 +4,16 @@
 require_once(__DIR__."/../../core/ViewManager.php");
 $view = ViewManager::getInstance();
 $view->setVariable("title", i18n("Login"));
+
 $errors = $view->getVariable("errors");
 ?>
 
-<h1><?= i18n("Login") ?></h1>
-<?= isset($errors["general"])?$errors["general"]:"" ?>
+<div class="container">
+	<h1><?= i18n("Login") ?></h1>
+	<?= isset($errors["general"]) ? i18n($errors["general"]) : "" ?>
+</div>
 
-<div id="login">
-	<form action="index.php?controller=user&amp;action=login" method="POST">
+<form action="index.php?controller=user&amp;action=login" method="POST">
 	<label for="username"><b><?= i18n("Username")?></b></label>
 	<input type="text" name="username">
 
@@ -20,3 +22,7 @@ $errors = $view->getVariable("errors");
 
 	<button type="submit"><?= i18n("Login")?></button>
 </form>
+
+<?php $view->moveToFragment("css");?>
+<link rel="stylesheet" href="view/styles/login.css" type="text/css">
+<?php $view->moveToDefaultFragment(); ?>

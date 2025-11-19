@@ -13,14 +13,13 @@ $currentuser = $view->getVariable("currentusername");
 	<link rel="stylesheet" href="view/styles/style.css" type="text/css">
 	<!-- enable ji18n() javascript function to translate inside your scripts -->
 	<script src="index.php?controller=language&amp;action=i18njs"></script>
-	<!-- ?= $view->getFragment("css") ? -->
+	<?= $view->getFragment("css") ?>
 	<!-- ?= $view->getFragment("javascript") ? -->
 </head>
 <body>
 
 	<header>
 		<h1>TaskGroup</h1>
-		<?php include(__DIR__."/language_select_element.php"); ?>
 		<nav>
 			<?php if (isset($currentuser)): ?>
 				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a> 
@@ -29,6 +28,7 @@ $currentuser = $view->getVariable("currentusername");
 				<a href="index.php?controller=user&amp;action=login"><?= i18n("Login") ?></a> 
 				<a href="index.php?controller=user&amp;action=register"><?= i18n("Register") ?></a> 
 			<?php endif ?>
+			<?php include(__DIR__."/language_select_element.php"); ?>
 		</nav>
 	</header>
 

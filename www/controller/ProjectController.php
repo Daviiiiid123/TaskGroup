@@ -17,14 +17,12 @@ class ProjectController extends BaseController
     }
 
 
-    public function index()
-    {
-        // Verificar autenticación
-        $this->checkAuthentication();
-
-        // Obtener proyectos del usuario actual
-        $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
-        $this->view->setVariable("projects", $projects);
+    public function index() {
+        if (isset($_SESSION["currentuser"])) {
+            // Obtener proyectos del usuario actual
+            $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
+            $this->view->setVariable("projects", $projects); 
+        }
         $this->view->render("project", "index");
     }
 

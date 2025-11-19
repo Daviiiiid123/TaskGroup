@@ -36,9 +36,9 @@ class UserController extends BaseController {
 				// send user to the restricted area (HTTP 302 code)
 				$this->view->redirect("project", "index");
 
-			}else{
+			} else {
 				$errors = array();
-				$errors["general"] = "Username is not valid";
+				$errors["general"] = "User or password is incorrect";
 				$this->view->setVariable("errors", $errors);
 			}
 		}

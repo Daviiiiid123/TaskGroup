@@ -37,7 +37,8 @@ header nav {
     display: flex;
 }
 
-header nav a {
+header nav *:is(a, p) {
+    margin-block: 0;
     text-decoration:none;
     color:var(--card);
     background:var(--primary);
@@ -48,11 +49,11 @@ header nav a {
     text-align: center;
 }
 @media (min-width: 900px) {
-    header nav a {
+    header nav *:is(a, p) {
         margin-left:20px;
     }
 }
-header nav a:hover{
+header nav *:is(a, p):hover{
     background:var(--secondary);
     color:var(--text);
 }
@@ -86,8 +87,31 @@ header nav a:hover{
     header {
         flex-direction: column;
     }
-    nav > a {
+    nav > * {
         margin-left: 5px;
         margin-bottom: 5px;
     }
+}
+
+/* Dropdown */
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

@@ -16,6 +16,7 @@ array(
 	"Post \"%s\" successfully updated." => "Artículo \"%s\" modificado.",
 	"Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
 	"Index" => "Inicio",
+	"Projects" => "Proyectos",
 	"View projects" => "Ver proyectos",
 	"View tasks" => "Ver tareas",
 	"Login" => "Iniciar sesión",
@@ -34,6 +35,7 @@ array(
 	"%s commented..."=>"%s ha comentado...",
 	"Comment" => "Comentario",
 	"do comment" => "comentar",
+	"Language" => "Lenguaje",
 	"Spanish" => "Español",
 	"English" => "Inglés",
 	"Welcome to the Blog App!" => "¡Bienvenido a la App Blog!",
@@ -41,6 +43,7 @@ array(
 	"content is mandatory" => "El contenido es obligatorio",
 	"title is mandatory" => "El título es obligatorio",
 	"author is mandatory" => "El autor es obligatorio",
-	"post is not valid" => "El artículo no es válido"
+	"post is not valid" => "El artículo no es válido",
+	"User or password is incorrect" => "El usuario o la contraseña son inválidos"
 )
 ?>
