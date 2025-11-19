@@ -62,7 +62,7 @@ class ProjectMapper {
 	public function save(Project $project) {
 		$stmt = $this->db->prepare("INSERT INTO projects(title) values (?)");
 		$stmt->execute(array($project->getTitle()));
-		if ($project->getId()) {
+		if ($project->getId() == NULL) {
 			$project->setId($this->db->lastInsertId());
 		}
 		return $this->db->lastInsertId();
