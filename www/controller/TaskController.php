@@ -15,6 +15,7 @@ class TaskController extends BaseController {
     }
 
     public function create() {
+        $this->checkAuthentication();
 
     }
 

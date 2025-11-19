@@ -18,6 +18,7 @@ class ProjectController extends BaseController
 
 
     public function index() {
+        
         if (isset($_SESSION["currentuser"])) {
             // Obtener proyectos del usuario actual
             $projects = $this->projectMapper->findByUser($this->currentUser->getUsername());
@@ -63,7 +64,6 @@ class ProjectController extends BaseController
         if (isset($_POST["title"])) {
             $project = new Project();
             $project->setTitle($_POST["title"]);
-            $project->setContent($_POST["content"]);
             $this->projectMapper->save($project);
             $this->view->redirect("project", "index");
         } else {
@@ -83,7 +83,6 @@ class ProjectController extends BaseController
                 return;
             }
             $project->setTitle($_POST["title"]);
-            $project->setContent($_POST["content"]);
             $this->projectMapper->save($project);
             $this->view->redirect("project", "index");
         } else {
