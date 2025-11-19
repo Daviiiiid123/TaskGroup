@@ -96,6 +96,10 @@ header nav *:is(a, p):hover{
     margin-bottom: 18px;
 }
 
+main h1 {
+    text-align: center;
+}
+
 /* Dropdown */
 
 .dropdown {
