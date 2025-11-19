@@ -15,6 +15,5 @@ $currentuser = $view->getVariable("currentusername");
 
 <p>Vista del proyecto</p>
 
-<a href="index.php?controller=project&action=index">Volver a proyectos</a>
 
 <?php endif; ?>
