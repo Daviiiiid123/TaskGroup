@@ -65,6 +65,7 @@ class ProjectController extends BaseController
             $project = new Project();
             $project->setTitle($_POST["title"]);
             $this->projectMapper->save($project);
+            $this->projectMapper->addUserToProject($project->getId(), $_SESSION["currentuser"]);
             $this->view->redirect("project", "index");
         } else {
             //Si no se ha enviado el formulario, mostrar la vista de creación
