@@ -17,6 +17,7 @@ array(
 	"Post \"%s\" successfully deleted." => "Artículo \"%s\" eliminado.",
 	"Index" => "Inicio",
 	"Projects" => "Proyectos",
+	"New project" => "Nuevo proyecto",
 	"View projects" => "Ver proyectos",
 	"View tasks" => "Ver tareas",
 	"Login" => "Iniciar sesión",

@@ -20,7 +20,7 @@ class ProjectMapper {
 		$projects = array();
 
 		foreach ($projects_db as $project) {
-			array_push($projects, new Project($project["id"], $project["title"], $project["content"]));
+			array_push($projects, new Project($project["id"], $project["title"]));
 		}
 
 		return $projects;
@@ -38,7 +38,7 @@ class ProjectMapper {
 		$projects = array();
 
 		foreach ($projects_db as $project) {
-			array_push($projects, new Project($project["id"], $project["title"], $project["content"]));
+			array_push($projects, new Project($project["id"], $project["title"]));
 		}
 
 		return $projects;
@@ -53,7 +53,6 @@ class ProjectMapper {
 			return new Project(
 				$project["id"],
 				$project["title"],
-				$project["content"]
 			);
 		} else {
 			return NULL;
@@ -61,8 +60,8 @@ class ProjectMapper {
 	}
 
 	public function save(Project $project) {
-		$stmt = $this->db->prepare("INSERT INTO projects(title, content) values (?,?)");
-		$stmt->execute(array($project->getTitle(), $project->getContent()));
+		$stmt = $this->db->prepare("INSERT INTO projects(title) values (?)");
+		$stmt->execute(array($project->getTitle()));
 		return $this->db->lastInsertId();
 	}
 
@@ -77,8 +76,8 @@ class ProjectMapper {
 	}
 
 	public function update(Project $project) {
-		$stmt = $this->db->prepare("UPDATE projects set title=?, content=? where id=?");
-		$stmt->execute(array($project->getTitle(), $project->getContent(), $project->getId()));
+		$stmt = $this->db->prepare("UPDATE projects set title=? where id=?");
+		$stmt->execute(array($project->getTitle(), $project->getId()));
 	}
 
 	public function delete(Project $project) {

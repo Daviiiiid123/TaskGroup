@@ -22,6 +22,7 @@ $currentuser = $view->getVariable("currentusername");
 		<h1>TaskGroup</h1>
 		<nav>
 			<?php if (isset($currentuser)): ?>
+				<a href="index.php?controller=project&amp;action=create"><?= i18n("New project") ?></a> 
 				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a> 
 			<?php else: ?>
 				<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
