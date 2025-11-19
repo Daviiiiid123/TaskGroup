@@ -1,9 +1,4 @@
-body {
-    max-width: 900px;
-    margin-inline: auto;
-}
-
-body > h2 {
+h1 {
     text-align: center;
 }
 
@@ -13,10 +8,31 @@ form {
     display: grid;
 }
 
-form > input {
+form button[type=submit] {
+    max-width: 100px;
+}
+
+.container {
+    width: 100%;
+    display: grid;
+}
+
+.container:has(> h1, > h2) {
+    margin-block: 15px;
+}
+
+.container:has(> input) {
+    margin-block: 10px;
+}
+
+form input {
     margin-bottom: 10px;
 }
 
-form > button[type=submit] {
-    max-width: 100px;
+.container input {
+    margin-bottom: 0;
+}
+
+.container :is(h1, h2, h3) {
+    margin: 0;
 }
