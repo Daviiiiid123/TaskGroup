@@ -21,11 +21,11 @@ $currentuser = $view->getVariable("currentusername");
 	<header>
 		<h1>TaskGroup</h1>
 		<nav>
+			<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
 			<?php if (isset($currentuser)): ?>
 				<a href="index.php?controller=project&amp;action=create"><?= i18n("New project") ?></a> 
 				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a> 
 			<?php else: ?>
-				<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
 				<a href="index.php?controller=user&amp;action=login"><?= i18n("Login") ?></a> 
 				<a href="index.php?controller=user&amp;action=register"><?= i18n("Register") ?></a> 
 			<?php endif ?>
