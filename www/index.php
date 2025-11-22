@@ -1,8 +1,8 @@
 <?php
 
-define("DEFAULT_CONTROLLER", "user");
+define("DEFAULT_CONTROLLER", "project");
 
-define("DEFAULT_ACTION", "login");
+define("DEFAULT_ACTION", "index");
 
 function run() {
 	try {
