@@ -73,15 +73,22 @@ class ProjectController extends BaseController
         $this->checkAuthentication();
 
         if (isset($_POST["title"])) {
-            $project = new Project();
-            $project->setTitle($_POST["title"]);
-            $this->projectMapper->save($project);
-            $this->projectMapper->addUserToProject($project->getId(), $this->currentUser->getUsername());
-            $this->view->redirect("project", "index");
-        } else {
-            //Si no se ha enviado el formulario, mostrar la vista de creación
-            $this->view->render("project", "create");
+            try {
+                $project = new Project();
+                $project->setTitle($_POST["title"]);
+                $project->checkIsValidForCreate();
+                $this->projectMapper->save($project);
+                $this->projectMapper->addUserToProject($project->getId(), $this->currentUser->getUsername());
+                $this->view->redirect("project", "index");
+                return;
+            } catch (ValidationException $ex) {
+                $errors = $ex->getErrors();
+				$this->view->setVariable("errors", $errors);
+            }
         }
+        //Si no se ha enviado el formulario, mostrar la vista de creación
+        $this->view->render("project", "create");
+        
     }
 
     public function edit()

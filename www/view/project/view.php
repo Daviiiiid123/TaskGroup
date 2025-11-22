@@ -16,7 +16,7 @@ $view->setVariable("title", htmlspecialchars($project->getTitle()));
     <span></span>
     <h1><?= htmlspecialchars($project->getTitle()) ?></h1>
     <span id="project-buttons">
-        <a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("Create task") ?>"><img src="view/resources/clipboard-plus.svg"></img></a> 
+        <a class="button" href="index.php?controller=task&amp;action=create&amp;projectId=<?= $project->getId() ?>" title="<?= i18n("Create task") ?>"><img src="view/resources/clipboard-plus.svg"></img></a> 
         <a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("Project users") ?>"><img src="view/resources/user-pen.svg"></img></a>
         <a class="button" href="index.php?controller=project&amp;action=summary&amp;id=<?= $project->getId() ?>" title="<?= i18n("Project info") ?>"><img src="view/resources/info.svg"></img></a> 
     </span>

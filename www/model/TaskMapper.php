@@ -24,8 +24,7 @@ class TaskMapper {
 			$assignedUsers = $this->getUsersByTask($task["id"]);
 			array_push($tasks, new Task(
 				$task["id"], 
-				$task["title"], 
-				$task["content"], 
+				$task["title"],
 				$task["project"], 
 				$assignedUsers,
 				$task["is_done"]
@@ -46,8 +45,7 @@ class TaskMapper {
 			$assignedUsers = $this->getUsersByTask($task["id"]);
 			array_push($tasks, new Task(
 				$task["id"], 
-				$task["title"], 
-				$task["content"], 
+				$task["title"],
 				$task["project"], 
 				$assignedUsers,
 				$task["is_done"]
@@ -73,7 +71,6 @@ class TaskMapper {
 			array_push($tasks, new Task(
 				$task["id"], 
 				$task["title"], 
-				$task["content"], 
 				$task["project"], 
 				$assignedUsers,
 				$task["is_done"]
@@ -93,7 +90,6 @@ class TaskMapper {
 			return new Task(
 				$task["id"],
 				$task["title"],
-				$task["content"],
 				$task["project"],
 				$assignedUsers,
 				$task["is_done"]
@@ -104,8 +100,8 @@ class TaskMapper {
 	}
 
 	public function save(Task $task) {
-		$stmt = $this->db->prepare("INSERT INTO tasks(title, content, project, is_done) values (?,?,?,?)");
-		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getProjectId(), $task->getIsDone()));
+		$stmt = $this->db->prepare("INSERT INTO tasks(title, project, is_done) values (?,?,?)");
+		$stmt->execute(array($task->getTitle(), $task->getProjectId(), $task->getIsDone()));
 		$taskId = $this->db->lastInsertId();
 		
 		foreach ($task->getAssignedUsers() as $username) {
@@ -126,8 +122,8 @@ class TaskMapper {
 	}
 
 	public function update(Task $task) {
-		$stmt = $this->db->prepare("UPDATE tasks set title=?, content=?, is_done=? where id=?");
-		$stmt->execute(array($task->getTitle(), $task->getContent(), $task->getIsDone(), $task->getId()));
+		$stmt = $this->db->prepare("UPDATE tasks set title=?, is_done=? where id=?");
+		$stmt->execute(array($task->getTitle(), $task->getIsDone(), $task->getId()));
 		
 		$stmt = $this->db->prepare("DELETE FROM task_users WHERE task_id=?");
 		$stmt->execute(array($task->getId()));

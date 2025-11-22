@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+#project-header > h1 {
+  position: sticky;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 #project-buttons {
   display: flex;
 }

@@ -1,6 +1,9 @@
-form {
+section {
     max-width: 500px;
     margin-inline: auto;
+}
+
+form {
     display: grid;
 }
 
@@ -22,7 +25,7 @@ form button[type=submit] {
     margin-block: 15px;
 }
 
-.container:has(> input) {
+.container:has(> input, > select) {
     margin-block: 10px;
 }
 

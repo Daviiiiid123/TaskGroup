@@ -22,16 +22,12 @@ class TaskController extends BaseController
         $this->checkAuthentication();
 
         // Verificar que se proporciona el ID del proyecto (por GET o POST)
-        if (!isset($_POST["projectId"]) && !isset($_GET["projectId"])) {
+        if (!isset($_REQUEST["projectId"])) {
             $this->view->redirect("project", "index");
             return;
         }
         // Obtener el projectId
-        if (isset($_POST["projectId"])) {
-            $projectId = $_POST["projectId"];
-        } else {
-            $projectId = $_GET["projectId"];
-        }
+        $projectId = $_REQUEST["projectId"];
 
         // Verificar que el usuario pertenece al proyecto
         if (!$this->projectMapper->userBelongsToProject($projectId, $this->currentUser->getUsername())) {
@@ -42,36 +38,45 @@ class TaskController extends BaseController
         // Si es POST, procesar el formulario
         if (isset($_POST["title"])) {
 
-            // Crear la nueva tarea
-            $task = new Task();
-            $task->setTitle($_POST["title"]);
-            $task->setContent($_POST["content"]);
-            $task->setProjectId($projectId);
-            $task->setAssignedUsers([]); // Inicialmente sin usuarios asignados
-            $task->setIsDone(false); // Inicialmente no completada
-
-            // Guardar la tarea en la base de datos
-            $this->taskMapper->save($task);
-
-            // Asignar usuario a la tarea
             // Si se especifica un usuario, asignarlo; si no, asignar el actual
-            if (isset($_POST["assignedUser"]) && !empty($_POST["assignedUser"])) {
-                $this->taskMapper->addUserToTask($task->getId(), $_POST["assignedUser"]);
+            $assignedUser;
+            if (isset($_POST["assignedUser"])) {
+                $assignedUser = $_POST["assignedUser"];
             } else {
-                $this->taskMapper->addUserToTask($task->getId(), $this->currentUser->getUsername());
+                $assignedUser = $this->currentUser->getUsername();
             }
 
-            // Redirigir a la vista del proyecto
-            $this->view->redirect("project", "view", "id=" . $projectId);
-            return;
-        } else {
-            // Mostrar formulario de creación
-            $project = $this->projectMapper->findById($projectId);
-            $projectUsers = $this->projectMapper->getUsersByProject($projectId);
-            $this->view->setVariable("project", $project);
-            $this->view->setVariable("projectUsers", $projectUsers);
-            $this->view->render("task", "create");
+            try {
+                // Crear la nueva tarea
+                $task = new Task();
+                $task->setTitle($_POST["title"]);
+                $task->setProjectId($projectId);
+                if (!empty($assignedUser)) {
+                    $task->setAssignedUsers([$assignedUser]);
+                }
+                $task->setIsDone(false); // Inicialmente no completada
+                
+                $task->checkIsValidForCreate();
+
+                // Guardar la tarea en la base de datos
+                $this->taskMapper->save($task);
+
+                // Redirigir a la vista del proyecto
+                $this->view->redirect("project", "view", "id=" . $projectId);
+                return;
+            } catch (ValidationException $ex) {
+				$errors = $ex->getErrors();
+				$this->view->setVariable("errors", $errors);
+            }
         }
+        
+        // Mostrar formulario de creación
+        $project = $this->projectMapper->findById($projectId);
+        $projectUsers = $this->projectMapper->getUsersByProject($projectId);
+        $this->view->setVariable("project", $project);
+        $this->view->setVariable("projectUsers", $projectUsers);
+        $this->view->setVariable("currentUsername", $this->currentUser->getUsername());
+        $this->view->render("task", "create");
     }
 
     public function edit()

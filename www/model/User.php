@@ -62,7 +62,7 @@ class User {
 			$errors["passwd"] = "Password must be at least 5 characters length";
 		}
 		if (sizeof($errors)>0){
-			throw new ValidationException($errors, "user is not valid");
+			throw new ValidationException($errors, "User is not valid");
 		}
 	}
 }

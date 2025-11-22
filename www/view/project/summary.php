@@ -8,9 +8,9 @@ $project = $view->getVariable("project");
 $totalTasks = $view->getVariable("totalTasks");
 $pendingTasks = $view->getVariable("pendingTasks");
 $resolvedTasks = $view->getVariable("resolvedTasks");
-$progressTasks = $view->getVariable("progressTasks");
+$progress = $view->getVariable("progress");
 $currentuser = $view->getVariable("currentusername");
-$view->setVariable("title", htmlspecialchars($project->getTitle()));
+$view->setVariable("title", i18n("Project info"));
 ?>
 
 <h1><?= i18n("Project info") ?></h1>
@@ -33,9 +33,11 @@ $view->setVariable("title", htmlspecialchars($project->getTitle()));
 
     <div>
         <h3><?= i18n("Progress") ?>: </h3>
-        <p><?= $progressTasks ?></p>
+        <p><?= $progress ?>%</p>
     </div>
 </section>
+
+<a class="button" title="<?= i18n("Go back") ?>" href="index.php?controller=project&action=view&id=<?php echo $project->getId(); ?>"><img src="view/resources/undo-2.svg"></img></a>
 
 <?php $view->moveToFragment("css");?>
 <link rel="stylesheet" href="view/styles/projectSummary.css" type="text/css">

@@ -51,6 +51,10 @@ header nav {
     border-width: 0;
 }
 
+.button:has(> img) {
+    display: inline-flex;
+}
+
 .button + .button {
     margin-left: 5px;
 }

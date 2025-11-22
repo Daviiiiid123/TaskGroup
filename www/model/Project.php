@@ -36,4 +36,16 @@ class Project {
     public function setAssignedUsers($assignedUsers) {
         $this->assignedUsers = $assignedUsers;
     }
+
+    public function checkIsValidForCreate() {
+		$errors = array();
+
+		if (strlen(trim($this->getTitle())) < 1 ) {
+			$errors["title"] = "Title is mandatory";
+		}
+
+		if (sizeof($errors) > 0){
+			throw new ValidationException($errors, "Project is not valid");
+		}
+    }
 }

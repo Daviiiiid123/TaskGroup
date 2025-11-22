@@ -13,13 +13,19 @@ $errors = $view->getVariable("errors");
 	<?= isset($errors["general"]) ? i18n($errors["general"]) : "" ?>
 </div>
 
-<form action="index.php?controller=project&amp;action=create" method="POST">
-	<label for="title"><b><?= i18n("Project title")?></b></label>
-	<input type="text" name="title">
+<section>
+	<form action="index.php?controller=project&amp;action=create" method="POST">
 
-	<button type="submit"><?= i18n("Create project")?></button>
-</form>
+		<div class="container">
+			<label for="title"><b><?= i18n("Project title")?></b></label>
+			<input type="text" name="title">
+			<?= isset($errors["title"]) ? i18n($errors["title"]) : "" ?>
+		</div>
+
+		<button type="submit"><?= i18n("Create project")?></button>
+	</form>
+</section>
 
 <?php $view->moveToFragment("css");?>
-<link rel="stylesheet" href="view/styles/login.css" type="text/css">
+<link rel="stylesheet" href="view/styles/form.css" type="text/css">
 <?php $view->moveToDefaultFragment(); ?>

@@ -32,7 +32,6 @@ create table projects (
 create table tasks (
 	id int auto_increment,
 	title varchar(255) not null,
-	content varchar(255),
 	project int not null,
     is_done bit not null default 0,
 	primary key (id),
