@@ -1,8 +1,3 @@
-section {
-    max-width: 500px;
-    margin-inline: auto;
-}
-
 form {
     display: grid;
 }
