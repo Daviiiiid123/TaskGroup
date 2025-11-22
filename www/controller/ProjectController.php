@@ -3,6 +3,7 @@ require_once(__DIR__ . "/BaseController.php"); // Se incluye la clase BaseContro
 require_once(__DIR__ . "/../model/Project.php");
 require_once(__DIR__ . "/../model/ProjectMapper.php");
 require_once(__DIR__ . "/../model/TaskMapper.php");
+require_once(__DIR__ . "/../model/UserMapper.php");
 
 class ProjectController extends BaseController
 {
@@ -121,11 +122,17 @@ class ProjectController extends BaseController
     {
         $this->checkAuthentication();
 
-        if (isset($_POST["project_id"]) && isset($_POST["username"])) {
+        if (isset($_POST["project_id"]) && isset($_POST["email"])) {
             // Verificar que el usuario actual pertenece al proyecto
             if ($this->projectMapper->userBelongsToProject($_POST["project_id"], $this->currentUser->getUsername())) {
-                // Agregar el usuario al proyecto
-                $this->projectMapper->addUserToProject($_POST["project_id"], $_POST["username"]);
+                // Buscar usuario por email
+                $userMapper = new UserMapper();
+                $user = $userMapper->findByEmail($_POST["email"]);
+                
+                if ($user !== null) {
+                    // Agregar el usuario al proyecto
+                    $this->projectMapper->addUserToProject($_POST["project_id"], $user->getUsername());
+                }
             }
         }
 

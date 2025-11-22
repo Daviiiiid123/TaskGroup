@@ -33,5 +33,16 @@ class UserMapper {
 		}
 	}
 
+	public function findByEmail($email) {
+		$stmt = $this->db->prepare("SELECT * FROM users WHERE email=?");
+		$stmt->execute(array($email));
+		$user_db = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($user_db != null) {
+			return new User($user_db["username"], $user_db["passwd"], $user_db["email"]);
+		} else {
+			return null;
+		}
+	}
 	
 }
