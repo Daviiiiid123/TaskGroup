@@ -29,7 +29,7 @@ $view->setVariable("title", htmlspecialchars($project->getTitle()));
     <div class="trello-column">
         <h2><?= i18n("Finished tasks") ?></h2>
         <div class="trello-list">
-            <?php foreach ($notDoneTasks as $task): ?>
+            <?php foreach ($doneTasks as $task): ?>
                 <div class="trello-card">
                     <h3><?php echo $task->getTitle(); ?></h3>
                 </div>
