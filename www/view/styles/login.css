@@ -5,7 +5,12 @@ form {
 }
 
 form button[type=submit] {
-    max-width: 100px;
+    max-width: 150px;
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: space-between
 }
 
 .container {
