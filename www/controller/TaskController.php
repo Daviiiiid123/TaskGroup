@@ -138,7 +138,7 @@ class TaskController extends BaseController
         }
 
         // Eliminar la tarea
-        $this->taskMapper->delete($taskId);
+        $this->taskMapper->delete($task);
 
         // Redirigir a la vista del proyecto
         $this->view->redirect("project", "view", "id=" . $projectId);

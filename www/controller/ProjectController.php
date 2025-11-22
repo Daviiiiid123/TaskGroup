@@ -106,7 +106,13 @@ class ProjectController extends BaseController
     {
         $this->checkAuthentication();
         if (isset($_POST["id"])) {
-            $this->projectMapper->delete($_POST["id"]);
+            $project = $this->projectMapper->findById($_POST["id"]);
+            if ($project !== null) {
+                // Verificar que el usuario pertenece al proyecto
+                if ($this->projectMapper->userBelongsToProject($_POST["id"], $this->currentUser->getUsername())) {
+                    $this->projectMapper->delete($project);
+                }
+            }
         }
         $this->view->redirect("project", "index");
     }
