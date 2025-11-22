@@ -148,5 +148,45 @@ class ProjectController extends BaseController
     }
 
     // F10 - Resumen del proyecto
-    public function summary() {}
+    public function summary() {
+        $this->checkAuthentication();
+        
+        // Verificar que se proporciona el ID del proyecto
+        if (!isset($_GET["id"])) {
+            $this->view->redirect("project", "index");
+            return;
+        }
+        
+        $projectId = $_GET["id"];
+        
+        // Verificar que el usuario pertenece al proyecto
+        if (!$this->projectMapper->userBelongsToProject($projectId, $this->currentUser->getUsername())) {
+            $this->view->redirect("project", "index");
+            return;
+        }
+        
+        // Obtener el proyecto y sus tareas
+        $project = $this->projectMapper->findById($projectId);
+        $tasks = $this->taskMapper->findByProject($projectId);
+        
+        // Calcular estadísticas
+        $totalTasks = count($tasks);
+        $pendingTasks = count(array_filter($tasks, function($task) { 
+            return !$task->getIsDone(); 
+        }));
+        $resolvedTasks = count(array_filter($tasks, function($task) { 
+            return $task->getIsDone(); 
+        }));
+        $progress = $totalTasks > 0 ? round(($resolvedTasks / $totalTasks) * 100) : 0;
+        
+        // Pasar variables a la vista
+        $this->view->setVariable("project", $project);
+        $this->view->setVariable("totalTasks", $totalTasks);
+        $this->view->setVariable("pendingTasks", $pendingTasks);
+        $this->view->setVariable("resolvedTasks", $resolvedTasks);
+        $this->view->setVariable("progress", $progress);
+        
+        // Renderizar vista
+        $this->view->render("project", "summary");
+    }
 }
