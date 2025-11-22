@@ -53,8 +53,13 @@ class TaskController extends BaseController
             // Guardar la tarea en la base de datos
             $this->taskMapper->save($task);
 
-            // Asignar el usuario actual a la tarea
-            $this->taskMapper->addUserToTask($task->getId(), $this->currentUser->getUsername());
+            // Asignar usuario a la tarea
+            // Si se especifica un usuario, asignarlo; si no, asignar el actual
+            if (isset($_POST["assignedUser"]) && !empty($_POST["assignedUser"])) {
+                $this->taskMapper->addUserToTask($task->getId(), $_POST["assignedUser"]);
+            } else {
+                $this->taskMapper->addUserToTask($task->getId(), $this->currentUser->getUsername());
+            }
 
             // Redirigir a la vista del proyecto
             $this->view->redirect("project", "view", "id=" . $projectId);
@@ -62,7 +67,9 @@ class TaskController extends BaseController
         } else {
             // Mostrar formulario de creación
             $project = $this->projectMapper->findById($projectId);
+            $projectUsers = $this->projectMapper->getUsersByProject($projectId);
             $this->view->setVariable("project", $project);
+            $this->view->setVariable("projectUsers", $projectUsers);
             $this->view->render("task", "create");
         }
     }
@@ -102,12 +109,30 @@ class TaskController extends BaseController
 
             $this->taskMapper->update($task);
 
+            // Si se especifica cambiar usuario asignado
+            if (isset($_POST["assignedUser"]) && !empty($_POST["assignedUser"])) {
+                // Obtener usuarios actuales de la tarea
+                $currentUsers = $this->taskMapper->getUsersByTask($taskId);
+                
+                // Remover todos los usuarios actuales
+                foreach ($currentUsers as $user) {
+                    $this->taskMapper->removeUserFromTask($taskId, $user->getUsername());
+                }
+                
+                // Añadir el nuevo usuario
+                $this->taskMapper->addUserToTask($taskId, $_POST["assignedUser"]);
+            }
+
             $this->view->redirect("project", "view", "id=" . $projectId);
             return;
         }
         
         // Si no es POST, mostrar el formulario de edición
+        $project = $this->projectMapper->findById($projectId);
+        $projectUsers = $this->projectMapper->getUsersByProject($projectId);
         $this->view->setVariable("task", $task);
+        $this->view->setVariable("project", $project);
+        $this->view->setVariable("projectUsers", $projectUsers);
         $this->view->render("task", "edit");
     }
 
