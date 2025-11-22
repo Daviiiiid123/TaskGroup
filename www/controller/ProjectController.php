@@ -59,6 +59,10 @@ class ProjectController extends BaseController
 
         // Pasar el proyecto a la vista
         $this->view->setVariable("project", $project);
+
+        // Pasar las tareas del proyecto a la vista
+        $this->view->setVariable("tasks", $tasks);
+
         // Renderizar la vista de detalles del proyecto
         $this->view->render("project", "view");
     }

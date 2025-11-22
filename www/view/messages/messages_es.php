@@ -21,6 +21,8 @@ array(
 	"Project title" => "Título de proyecto",
 	"View projects" => "Ver proyectos",
 	"View tasks" => "Ver tareas",
+	"Todo tasks" => "Tareas por hacer",
+	"Finished tasks" => "Tareas terminadas",
 	"Login" => "Iniciar sesión",
 	"Log out" => "Cerrar sesión",
 	"Username" => "Nombre de usuario",
