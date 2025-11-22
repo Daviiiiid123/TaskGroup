@@ -20,7 +20,10 @@ $errors = $view->getVariable("errors");
 	<label for="passwd"><b><?= i18n("Password")?></b></label>
 	<input type="password" name="passwd">
 
-	<button type="submit"><?= i18n("Login")?></button>
+	<div id="form-buttons">
+		<button class="button" type="submit"><?= i18n("Login")?></button>
+		<a class="button" href="index.php?controller=user&amp;action=register"><?= i18n("I don't have an account")?></a>
+	</div>
 </form>
 
 <?php $view->moveToFragment("css");?>

@@ -21,13 +21,12 @@ $currentuser = $view->getVariable("currentusername");
 	<header>
 		<h1>TaskGroup</h1>
 		<nav>
-			<a href="index.php?controller=project&amp;action=index"><?= i18n("Index") ?></a>
+			<a class="button" href="index.php?controller=project&amp;action=index" title="<?= i18n("Index") ?>"><img src="view/resources/house.svg"></img></a>
 			<?php if (isset($currentuser)): ?>
-				<a href="index.php?controller=project&amp;action=create"><?= i18n("New project") ?></a> 
-				<a href="index.php?controller=user&amp;action=logout"><?= i18n("Log out") ?></a> 
+				<a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("New project") ?>"><img src="view/resources/book-plus.svg"></img></a> 
+				<a class="button" href="index.php?controller=user&amp;action=logout" title="<?= i18n("Log out") ?>"><img src="view/resources/log-out.svg"></img></a> 
 			<?php else: ?>
-				<a href="index.php?controller=user&amp;action=login"><?= i18n("Login") ?></a> 
-				<a href="index.php?controller=user&amp;action=register"><?= i18n("Register") ?></a> 
+				<a class="button" href="index.php?controller=user&amp;action=login" title="<?= i18n("Login") ?>"><img src="view/resources/log-in.svg"></img></a> 
 			<?php endif ?>
 			<?php include(__DIR__."/language_select_element.php"); ?>
 		</nav>

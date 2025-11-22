@@ -12,8 +12,15 @@ $currentuser = $view->getVariable("currentusername");
 $view->setVariable("title", htmlspecialchars($project->getTitle()));
 ?>
 
-<h1><?= htmlspecialchars($project->getTitle()) ?></h1>
-
+<div id="project-header">
+    <span></span>
+    <h1><?= htmlspecialchars($project->getTitle()) ?></h1>
+    <span id="project-buttons">
+        <a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("Create task") ?>"><img src="view/resources/clipboard-plus.svg"></img></a> 
+        <a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("Project users") ?>"><img src="view/resources/user-pen.svg"></img></a>
+        <a class="button" href="index.php?controller=project&amp;action=create" title="<?= i18n("Project info") ?>"><img src="view/resources/info.svg"></img></a> 
+    </span>
+</div>
 
 <div class="trello-board">
     <div class="trello-column">

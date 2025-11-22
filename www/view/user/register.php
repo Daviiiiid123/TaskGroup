@@ -8,7 +8,9 @@ $user = $view->getVariable("user");
 $view->setVariable("title", i18n("Register"));
 ?>
 
-<h1><?= i18n("Register")?></h1>
+<div class="container">
+	<h1><?= i18n("Register")?></h1>
+</div>
 
 <form action="index.php?controller=user&amp;action=register" method="POST">
 	<div class="container">
@@ -29,7 +31,7 @@ $view->setVariable("title", i18n("Register"));
 		<?= isset($errors["email"])?i18n($errors["email"]):"" ?>
 	</div>
 
-	<button type="submit"><?= i18n("Register")?></button>
+	<button class="button" type="submit"><?= i18n("Register")?></button>
 </form>
 
 <?php $view->moveToFragment("css");?>

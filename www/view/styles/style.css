@@ -38,38 +38,34 @@ header nav {
     display: flex;
 }
 
-header nav *:is(a, p) {
+.button {
+    padding: 4px;
     margin-block: 0;
     text-decoration:none;
     color:var(--card);
     background:var(--primary);
     font-size:16px;
-    padding:8px 16px;
     border-radius:6px;
     transition:background 0.2s;
     text-align: center;
+    border-width: 0;
 }
-@media (min-width: 900px) {
-    header nav *:is(a, p) {
-        margin-left:20px;
-    }
+
+.button + .button {
+    margin-left: 5px;
+}
+
+.button img {
+    filter: invert(100%);
+    vertical-align: middle;
 }
 
 @media (max-width: 900px) {
     body {
         margin: 2%;
     }
-    header nav, header {
-        flex-direction: column;
-    }
-    header nav {
-        width: 100%;
-    }
-    header nav *:is(a, p) {
-        margin-bottom: 5px;
-    }
 }
-header nav *:is(a, p):hover{
+.button:hover{
     background:var(--secondary);
     color:var(--text);
 }
@@ -122,11 +118,9 @@ main h1 {
 }
 
 #languagechooser > .dropdown-content {
-    width: 100%;
+    right: 0;
 }
 
-@media (max-width: 900px) {
-    #languagechooser > .dropdown-content {
-        position: inherit;
-    }
+#languagechooser > .dropdown-content > * {
+    margin-top: 5px;
 }
